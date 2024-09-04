@@ -1,0 +1,30 @@
+
+*, *::after, *::before {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+button {
+    font-size: 1.125rem;
+    padding: 5px 10px;
+}
+
+.grid {
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #d3d3d3;
+}
+
+.square {
+    margin: auto;
+    outline: 1px solid black;
+}
