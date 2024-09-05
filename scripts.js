@@ -51,7 +51,7 @@ drawBtn.addEventListener("click", function (e) {
 });
 
 window.addEventListener("resize", function(e) {
-    generateGrid();
+    generateGrid(size);
 });
 
 /* default starting grid */
