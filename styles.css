@@ -9,11 +9,21 @@ html {
 
 body {
     min-height: 100%;
+    background-color: rgb(177, 219, 255);
 }
 
 main {
+    height: 100vh;
     display: flex;
-    background-color: rgb(177, 219, 255);
+}
+
+#side-bar {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    width: 20vw;
 }
 
 button {
@@ -23,17 +33,10 @@ button {
 
 .container {
     margin: auto;
-    width: 100vh;
-    height: 100vh;
-    background-color: #efefef;
-}
-
-#side-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 4rem;
-    width: 20vw;
+    width: 95vh;
+    height: 95vh;
+    border: 3px solid brown;
+    background-color: #ffeedd;
 }
 
 .row{
@@ -41,6 +44,5 @@ button {
 }
 
 .square {
-    margin: auto;
     outline: 1px solid black;
 }

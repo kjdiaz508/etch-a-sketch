@@ -1,4 +1,8 @@
 
+let drawingEnabled = true;
+let pencilColor = "#fff";
+
+
 const sizeBtn = document.querySelector("#size-button");
 sizeBtn.addEventListener("click", function (e) {
     const newSize = parseInt(prompt("Select a new size for the grid.\nMax: 64"));
@@ -10,6 +14,12 @@ sizeBtn.addEventListener("click", function (e) {
         generateGrid(newSize);
     }
 });
+
+const drawBtn = document.querySelector("#draw-button");
+drawBtn.addEventListener("click", function (e) {
+    drawingEnabled = !drawingEnabled;
+})
+
 
 function generateGrid(gridSize){
     const container = document.querySelector(".container");
@@ -28,17 +38,19 @@ function generateGrid(gridSize){
             row.appendChild(square);
         }
         container.appendChild(row);
-        row.addEventListener("mouseover", function (e) {
-            if (e.target.getAttribute("class") == "square"){
-                e.target.style.backgroundColor = "black";
-            }
-        });
+        row.addEventListener("mouseover", colorSquare);
     }
-
-    
-
 }
 
+function colorSquare(e) {
+    /* just because I am adding the listener to the row and not the squares */
+    if (e.target.getAttribute("class") != "square" || !drawingEnabled){
+        return;
+    }
+    e.target.style.backgroundColor = "black";
+}
+
+/* default starting grid */
 generateGrid(16);
 
 
