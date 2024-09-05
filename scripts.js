@@ -1,25 +1,7 @@
 
 let drawingEnabled = true;
-let pencilColor = "#fff";
-
-
-const sizeBtn = document.querySelector("#size-button");
-sizeBtn.addEventListener("click", function (e) {
-    const newSize = parseInt(prompt("Select a new size for the grid.\nMax: 64"));
-    if (Number.isNaN(newSize)) {
-        alert("Enter a number please!");
-    } else if (newSize > 64){
-        alert("Too big! max size is 64.");
-    } else {
-        generateGrid(newSize);
-    }
-});
-
-const drawBtn = document.querySelector("#draw-button");
-drawBtn.addEventListener("click", function (e) {
-    drawingEnabled = !drawingEnabled;
-})
-
+let size = 16;
+const colorPicker = document.querySelector("#color-picker");
 
 function generateGrid(gridSize){
     const container = document.querySelector(".container");
@@ -34,7 +16,7 @@ function generateGrid(gridSize){
         for (let j=0; j < gridSize; j++){
             const square = document.createElement("div");
             square.setAttribute("class", "square");
-            square.style.cssText = `width: ${squareDimensions}px; height: ${squareDimensions}px;`
+            square.style.cssText = `width: ${squareDimensions}px; height: ${squareDimensions}px;`;
             row.appendChild(square);
         }
         container.appendChild(row);
@@ -47,10 +29,33 @@ function colorSquare(e) {
     if (e.target.getAttribute("class") != "square" || !drawingEnabled){
         return;
     }
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = colorPicker.value;
+    e.target.style.opacity = e.target.style.opacity
 }
 
+const sizeBtn = document.querySelector("#size-button");
+sizeBtn.addEventListener("click", function (e) {
+    const newSize = parseInt(prompt("Select a new size for the grid.\nMax: 64"));
+    if (Number.isNaN(newSize)) {
+        alert("Enter a number please!");
+    } else if (newSize > 64){
+        alert("Too big! max size is 64.");
+    } else {
+        size = newSize
+        generateGrid(size);
+    }
+});
+
+const drawBtn = document.querySelector("#draw-button");
+drawBtn.addEventListener("click", function (e) {
+    drawingEnabled = !drawingEnabled;
+});
+
+window.addEventListener("resize", function(e) {
+    generateGrid();
+});
+
 /* default starting grid */
-generateGrid(16);
+generateGrid(size);
 
 

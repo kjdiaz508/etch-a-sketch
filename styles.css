@@ -1,6 +1,7 @@
 
 *, *::after, *::before {
     margin: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -44,5 +45,5 @@ button {
 }
 
 .square {
-    outline: 1px solid black;
+    border: 1px solid black;
 }
