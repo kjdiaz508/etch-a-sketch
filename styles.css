@@ -11,17 +11,33 @@ body {
     min-height: 100%;
 }
 
+main {
+    display: flex;
+    background-color: rgb(177, 219, 255);
+}
+
 button {
     font-size: 1.125rem;
     padding: 5px 10px;
 }
 
-.grid {
+.container {
     margin: auto;
-    justify-content: center;
+    width: 100vh;
+    height: 100vh;
+    background-color: #efefef;
+}
+
+#side-bar {
     display: flex;
-    flex-wrap: wrap;
-    background-color: #d3d3d3;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    width: 20vw;
+}
+
+.row{
+    display: flex;
 }
 
 .square {
