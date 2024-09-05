@@ -30,7 +30,6 @@ function colorSquare(e) {
         return;
     }
     e.target.style.backgroundColor = colorPicker.value;
-    e.target.style.opacity = e.target.style.opacity
 }
 
 const sizeBtn = document.querySelector("#size-button");
